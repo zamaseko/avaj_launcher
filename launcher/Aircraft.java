@@ -1,0 +1,17 @@
+package launcher;
+
+public abstract class Aircraft
+{
+    protected long id;
+    protected String name;
+    protected Coordinates coordinates;
+    protected long idCounter = 0;
+
+    protected Aircraft(String name, Coordinates coordinates)
+    {
+    }
+
+    private long nextId()
+    {
+    }
+}
