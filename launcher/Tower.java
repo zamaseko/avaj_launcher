@@ -1,12 +1,13 @@
 package launcher;
+import java.util.*;
 
-private abstract class Tower
+public abstract class Tower
 {
-    public Flyable observers = new observers;
+    private List<Flyable> observer = new ArrayList<Flyable>();
     public void register(Flyable flyable)
     {}
     public void unregister(Flyable flyable)
     {}
-    protected void conditonChanged()
+    protected void conditonsChanged()
     {}
 }

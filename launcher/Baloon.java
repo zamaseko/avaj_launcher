@@ -1,11 +1,10 @@
 package launcher;
 
-public class Helicopter extends Aircraft implements Flyable
-{
+private class Baloon extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
-    
-    private Helicopter(String name, Coordinates coordinates)
-    {   
+
+    private Baloon(String name, Coordinates coordinates)
+    {
     }
 
     @Override
@@ -15,6 +14,4 @@ public class Helicopter extends Aircraft implements Flyable
 
     @Override
     public void registerTower(WeatherTower weatherTower)
-    {
-    }
 }
