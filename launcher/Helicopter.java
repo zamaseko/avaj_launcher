@@ -1,6 +1,6 @@
 package launcher;
 
-public class Helicopter 
+public class Helicopter extends Aircraft implements Flyable
 {
     private WeatherTower weatherTower;
     
