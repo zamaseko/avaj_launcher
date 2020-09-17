@@ -3,7 +3,7 @@ import java.util.*;
 
 public abstract class Tower
 {
-    private List<Flyable> observer = new ArrayList<Flyable>();
+    private List <Flyable> observers = new ArrayList<Flyable>();
     public void register(Flyable flyable)
     {}
     public void unregister(Flyable flyable)
