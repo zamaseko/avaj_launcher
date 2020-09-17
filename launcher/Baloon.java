@@ -14,7 +14,8 @@ private class Baloon extends Aircraft implements Flyable {
         String wch = new weatherTower.getWeather(coordinates);
         switch(wch)
         {
-            case "SUN": 
+            case "SUN":
+            
             break ;
 
             case "RAIN":
