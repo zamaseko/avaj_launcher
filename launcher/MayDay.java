@@ -7,7 +7,7 @@ public class MayDay {
         File cf = new File("stimulation.txt");
         try
         {
-            cf.delete();
+           // cf.delete();
             cf.createNewFile();
         }
         catch (Exception e) 
