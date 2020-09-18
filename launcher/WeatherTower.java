@@ -1,13 +1,15 @@
 package launcher;
 
-public class WeatherTower extends Tower{
+public class WeatherTower extends Tower
+{
     public String getWeather(Coordinates coordinates)
     {
-        return WeatherProvider.getProvider().getCurrentWeather(coordinates);
+        WeatherProvider.getProvider();
+        return WeatherProvider.getCurrentWeather(coordinates);
     }
     
-    private void changeWeather()
+    void changeWeather()
     {
-        return this.conditionsChange();
+        this.conditionsChanged();
     }
 }

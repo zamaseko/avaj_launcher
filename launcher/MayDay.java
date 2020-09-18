@@ -5,9 +5,12 @@ import java.io.*;
 public class MayDay {
     public void createFile() {
         File cf = new File("stimulation.txt");
-        try {
+        try
+        {
             cf.createNewFile();
-        } catch (Exception e) {
+        }
+        catch (Exception e) 
+        {
             System.out.println("The record log was not successfully established");
         }
     }
