@@ -7,6 +7,7 @@ public class MayDay {
         File cf = new File("stimulation.txt");
         try
         {
+            cf.delete();
             cf.createNewFile();
         }
         catch (Exception e) 
@@ -15,13 +16,13 @@ public class MayDay {
         }
     }
 
-    public void writeRecord()
+    public void writeRecord(String s)
     {
        // FileWriter wr;
         try
         {
             FileWriter wr = new FileWriter("stimulation.txt", true);
-            wr.write("%s");
+            wr.write("%s\n");
             wr.close();
         }
         catch (IOException e) 
