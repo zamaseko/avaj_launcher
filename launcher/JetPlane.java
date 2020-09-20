@@ -17,13 +17,13 @@ public class JetPlane extends Aircraft implements Flyable
         {
             case "SUN":
                 this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() + 10 , coordinates.getHeight() + 5);
-                may.writeRecord(this.getClass().getSimpleName() + "#" + this.name + "("+this.id+"): " + "Suns out, buns out, have fun." );
+                may.writeRecord(this.getClass().getSimpleName() + "#" + this.name + "("+this.id+"): " + "Suns out, buns out, have fun");
 
             break ;
 
             case "RAIN":
                 this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() + 5, coordinates.getHeight());
-                may.writeRecord(this.getClass().getSimpleName() + "#" + this.name + "("+this.id+"): " + "Rich people don't fly in the rain." );
+                may.writeRecord(this.getClass().getSimpleName() + "#" + this.name + "("+this.id+"): " + "Rich people don't fly in the rain");
 
             break ;
 
@@ -42,7 +42,7 @@ public class JetPlane extends Aircraft implements Flyable
         if(this.coordinates.getHeight() >= 100)
         {
             this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), 100);
-            may.writeRecord("Hello Tower: " + this.getClass().getSimpleName() + "#" + this.name + "("+this.id+"): " + "Ey yo my man you flying too high." );
+            may.writeRecord("Hello Tower: " + this.getClass().getSimpleName() + "#" + this.name + "("+this.id+"): " + "Ey yo my man you flying too high" );
         }
         else if(this.coordinates.getHeight() <= 0)
         {
@@ -59,6 +59,6 @@ public class JetPlane extends Aircraft implements Flyable
         this.weatherTower = weatherTower;
         this.weatherTower.register(this);
         MayDay warn = new MayDay();
-        warn.writeRecord("Hello Tower: " + this.getClass().getSimpleName() + "#" + this.name + "("+this.id+"): " + "is registered." );
+        warn.writeRecord("Hello Tower: " + this.getClass().getSimpleName() + "#" + this.name + "("+this.id+"): " + "is registered" );
     }
 }

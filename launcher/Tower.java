@@ -19,7 +19,7 @@ public abstract class Tower
         {
             observers.get(i).updateConditions();
                 i++;
-            return ; 
+           // return ; 
         }
     }
 }

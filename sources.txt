@@ -6,6 +6,7 @@
 ./launcher/Helicopter.java
 ./launcher/JetPlane.java
 ./launcher/MayDay.java
+./launcher/Stimulator.java
 ./launcher/Tower.java
 ./launcher/WeatherProvider.java
 ./launcher/WeatherTower.java

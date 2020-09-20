@@ -34,14 +34,14 @@ public class Helicopter extends Aircraft implements Flyable
 
             case "SNOW":
                 this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() + 12);
-                may.writeRecord(this.getClass().getSimpleName() + "#" + this.name + "("+this.id+"): " + "Its gonna be a bumpy ride." );
+                may.writeRecord(this.getClass().getSimpleName() + "#" + this.name + "("+this.id+"): " + "Its gonna be a bumpy ride" );
 
             break ;
         }
         if(this.coordinates.getHeight() >= 100)
         {
             this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), 100);
-            may.writeRecord("Hello Tower: " + this.getClass().getSimpleName() + "#" + this.name + "("+this.id+"): " + "Ey yo my man you flying too high." );
+            may.writeRecord("Hello Tower: " + this.getClass().getSimpleName() + "#" + this.name + "("+this.id+"): " + "Ey yo my man you flying too high" );
         }
         else if(this.coordinates.getHeight() <= 0)
         {
@@ -59,7 +59,7 @@ public class Helicopter extends Aircraft implements Flyable
         this.weatherTower = weatherTower;
         weatherTower.register(this);
         MayDay warn = new MayDay();
-        warn.writeRecord("Hello Tower: " + this.getClass().getSimpleName() + "#" + this.name + "("+this.id+")" + "is registered." );
+        warn.writeRecord("Hello Tower: " + this.getClass().getSimpleName() + "#" + this.name + "("+this.id+")" + "is registered");
     
     }
 }
