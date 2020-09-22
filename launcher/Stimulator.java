@@ -4,56 +4,84 @@ import java.util.*;
 import java.io.*;
 
 public class Stimulator {
- 
-
-    public static void main(String[] args)
+    public static WeatherTower t = new WeatherTower();
+    public static int i;
+    public static void main(String [] args) throws FileNotFoundException {
+        if(args.length >= 1)
+        {
+            File f = new File(args[0]);
+            Scanner scan = new Scanner(f);
+            scan.nextLine();
+            changeConditions();
+            scan.close();
+        }
+        else 
+        {
+            System.out.println("Hheyi wena git me at least one argument");
+        }
+    }
+    
+    public static void validate(String str)
     {
-//        List<String> s = new ArrayList<>();
-        WeatherTower tower = new WeatherTower();
-        ArrayList<Flyable> flyables = new ArrayList<>();
-
-        try
+        //AircraftFactory aircraftFactory = new AircraftFactory();
+        String read;
+        
+        try 
         {
-            FileReader fr = new FileReader(args[0]);
-            BufferedReader br = new BufferedReader(fr);
-            String str = br.readLine();
-            MayDay may = new MayDay();
-
-            int i;
-            try
+            BufferedReader br = new BufferedReader(new FileReader(str));
+            String sp[]; 
+            boolean z = true;
+            int y = 1;
+            while((read = br.readLine()) != null)
             {
-                i = Integer.parseInt(s);
-            }
-            catch(NumberFormatException e)
-            {
-                System.out.println("Error params: Enter the valid stimulations");
-            }
-            System.out.println(i + "stimulations to run");
-
-            String line;
-            while(line = br.readLine() != null)
-            {
-                String array[] = line.split(" ");
-                if(array.length != 5)
-                    System.out.println("hey");
-                try
-                {
-                    flyables.add(AircraftFactory.newAircraft(array[0], array[1], Integer.parseInt(array[2]), Integer.parseInt(array[3]), Integer.parseInt(array[4])));
+                if(z != false && y == 1){
+                    try {
+                        i = Integer.parseInt(read);
+                    } catch (NumberFormatException e) {
+                        System.out.println("We only need positive numbers here okay");
+                        return ;
+                    }
                 }
-                catch(NumberFormatException e)
-                {
-                    System.out.println("hello");
+                else{
+                    sp = read.split(" ");
+                    if(sp.length != 5)
+                    {
+                        System.out.println("We want 5 parameters my G");
+                    }
+                    if( sp.length == 1)
+                        continue ;
+                    try
+                    {
+                        if(Integer.parseInt(sp[2]) < 0 || Integer.parseInt(sp[3]) < 0 || Integer.parseInt(sp[4]) < 0)
+                        {
+                            System.out.println("No negative coordinates allowed");
+                        }
+                        else
+                        {
+                            AircraftFactory.newAircraft(sp[0], sp[1], Integer.parseInt(sp[2]), Integer.parseInt(sp[3]),
+                                    Integer.parseInt(sp[4])).registerTower(t);
+                        }
+                    }
+                    catch(Exception e)
+                    {
+                        System.out.println("Error. Fix this" + read);
+                        return ;
+                    }
                 }
+                y++;
             }
         }
-        catch(Exception e)
+        catch (Exception e)
         {
-            System.out.print("Bye Bye");
+            System.out.println("Reading file error");
+            return ;
         }
-        if(args.length <= 0)
-            System.out.println("Enter at least one Argument man!!");
-        else
-            System.out.println("Enter file: " + args[0] );
+    }
+    public static void changeConditions(){
+        while (i > 0){
+            t.changeWeather();
+            i--;
+        }
     }
 }
 
