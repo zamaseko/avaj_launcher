@@ -4,7 +4,7 @@ import java.io.*;
 
 public class MayDay {
     public void createFile() {
-        File cf = new File("stimulation.txt");
+        File cf = new File("simulation.txt");
         try
         {
            // cf.delete();
@@ -21,7 +21,7 @@ public class MayDay {
        // FileWriter wr;
         try
         {
-            FileWriter wr = new FileWriter("stimulation.txt", true);
+            FileWriter wr = new FileWriter("simulation.txt", true);
             wr.write(s + "\n");
             wr.close();
         }
