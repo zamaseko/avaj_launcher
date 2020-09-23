@@ -1,99 +1,99 @@
 package launcher;
 
-//import java.util.*;
+// import java.util.*;
 import java.io.*;
 
 public class Simulator {
-    public static int rep;
-    public static PrintWriter writer;
+    public static int repeat;
+   // public static PrintWriter writer;
 
     public static void main(String[] args) {
 
-        BufferedReader bufferedReader = null;
-        WeatherTower weatherTower = new WeatherTower();
-        //AircraftFactory aircraftFactory = new AircraftFactory(){};
-
-        if (args.length < 1) {
-            System.out.println("Error: Enter a file");
+        BufferedReader bf = null;
+        WeatherTower wtow = new WeatherTower();
+        if (args.length < 1)
+        {
+            System.out.println("EY my man where is the scenario.txt");
             return;
         }
-        //MayDay may = new MayDay();
-        String filename = args[0];
-        //File simulationFile = new File("Simulation.txt");
-        //= may.createFile();
-        // try {
-        //     writer = new PrintWriter(simulationFile);
-        // } catch (FileNotFoundException e) {
-        //     System.out.println("Error message: " + e.getMessage());
-        //     return;
-        // }
+        String file = args[0];
+        try
+        {
+            bf = new BufferedReader(new FileReader(file));
+            String s_line = bf.readLine();
+            int rev = 1;
+            String[] a;
 
-        // if(simulationFile.exists())
-        //     writer.println("");
-        try {
-            bufferedReader = new BufferedReader(new FileReader(filename));
-            String line;
-            int scenarioLine = 1;
-            String[] arr;
-
-            while ((line = bufferedReader.readLine()) != null) {
-                if (scenarioLine == 1) {
-                    try {
-                        rep = Integer.parseInt(line);
-                        if (rep < 0) {
-                            System.out.println("First line of scenario file must be a POSITIVE number!.");
+            while ((s_line != null))
+            {
+                if (rev == 1)
+                {
+                    try
+                    {
+                        repeat = Integer.parseInt(s_line);
+                        if (repeat < 0)
+                        {
+                            System.out.println("Only positive numbers are allowed.");
                             return;
                         }
-                    } catch (NumberFormatException e) {
-                        System.out.println("First line of scenario file must be a number.");
+                    }
+                    catch (NumberFormatException e)
+                    {
+                        System.out.println("Scenario.txt first number should be a digit.");
                         return;
                     }
-                } else {
-                    arr = line.split(" ");
-                    if (arr.length == 1 && arr[0].isEmpty()) // Do not consider empty lines
-                        continue;
-                    if (arr.length != 5) {
-                        System.out.println("Line " + scenarioLine + " must have 5 parameters.");
-                        return;
-                    }
-                    try {
-                        AircraftFactory.newAircraft(arr[0], arr[1], Integer.parseInt(arr[2]), Integer.parseInt(arr[3]),
-                                Integer.parseInt(arr[4])).registerTower(weatherTower);
-                    } catch (NumberFormatException e) {
-                        System.out.println("Longitude ,Latitude and Height must to be numbers.");
-                        System.out.println("Check line " + scenarioLine + ".");
-                        return;
-                    }catch (Exception ex) {
-                        System.out.println("Invaild Aircraft type on line " + scenarioLine + ".");
-                        return;
-                    }
-
                 }
-                scenarioLine++;
+                else
+                {
+                    a = s_line.split(" ");
+                    if (a.length == 1 && a[0].isEmpty()) // Do not consider empty lines
+                        continue;
+                    if (a.length != 5) {
+                        System.out.println("These scenarios" + rev + " should only have 5 parameters.");
+                        return;
+                }
+                try
+                {
+                    AircraftFactory.newAircraft(a[0], a[1], Integer.parseInt(a[2]), Integer.parseInt(a[3]),
+                                Integer.parseInt(a[4])).registerTower(wtow);
+                }
+                catch (NumberFormatException e)
+                {
+                    
+                    System.out.println("The coordinates should only be numbers.");
+                    System.out.println("Check line " + rev + ".");
+                      //  return;
+                }
+                catch (Exception e) 
+                {
+                    System.out.println("Invaild Aircraft type on line " + rev + ".");
+                       // return;
+                }
             }
-            //bufferedReader.close();
-            
-        } catch (Exception e) {
+            rev++;
+            }
+        } catch (Exception e){
             System.out.println("Reading file failed error: " + e.getMessage() + ".");
             return;
         }
-        finally {
-            try {
-                if (bufferedReader != null)
-                bufferedReader.close();
+        finally 
+        {
+            try
+            {
+                if (bf != null)
+                bf.close();
 
-            } catch (IOException ex) {
-                System.err.format("IOException: %s%n hello", ex);
+            }
+            catch (IOException e) {
+                System.err.format("IOException: %s%n hello", e);
             }
         }
 
-        while (rep > 0) {
-            //writer.println("\n---------------->\n");
-            weatherTower.changeWeather();
-            rep--;
+        while (repeat > 0) {
+            wtow.changeWeather();
+            repeat--;
         }
-        //writer.close();
-        System.out.println("Simulation Completed!");
+        System.out.println("The vehicles went and got flewed out!");
     }
 
 }

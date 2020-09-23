@@ -4,4 +4,4 @@
 # javac  @sources.txt
 #  java launcher.Stimulator $1 
 rm launcher/*.class
-rm Stimulation.txt
+rm Simulation.txt
