@@ -18,10 +18,10 @@ public class MayDay {
 
     public void writeRecord(String s)
     {
-       // FileWriter wr;
+        FileWriter wr;
         try
         {
-            FileWriter wr = new FileWriter("simulation.txt", true);
+            wr = new FileWriter("simulation.txt", true);
             wr.write(s + "\n");
             wr.close();
         }

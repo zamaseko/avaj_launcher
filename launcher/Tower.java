@@ -17,9 +17,8 @@ public abstract class Tower
         int i = 0;
         while (i < observers.size())
         {
-            observers.get(i).updateConditions();
-                i++;
-           // return ; 
+            observers.get(i++).updateConditions();
+                
         }
     }
 }
