@@ -9,9 +9,9 @@ public class Simulator {
         BufferedReader bf = null;
         WeatherTower wtow = new WeatherTower();
 
-        if (args.length != 1) {
+        if (args.length < 1) {
             System.out.println("Ey my man, where is the scenario.txt file");
-            return;
+            System.exit(0);
         }
         String file = args[0];
         try
@@ -31,6 +31,7 @@ public class Simulator {
                         if (repeat < 0) 
                         {
                             System.out.println("This should be a positive number!.");
+                            System.exit(0);
                         }
                     }
                     catch (NumberFormatException e)
@@ -41,11 +42,17 @@ public class Simulator {
                 else 
                 {
                     arr = s_line.split(" ");
+                    if(Integer.parseInt(arr[2]) < 1 || Integer.parseInt(arr[3]) < 1 || Integer.parseInt(arr[4]) < 1 )
+                    {
+                        System.out.println("The coordinates cannot be negative or equal to zero!!!");
+                        System.exit(0);
+                    }
                     if (arr.length == 1 && arr[0].isEmpty())
                         continue;
                     if (arr.length != 5)
                     {
                         System.out.println("That scenario line " + scene + " should have 5 parameters.");
+                        System.exit(0);
                     }
                     try
                     {
@@ -55,10 +62,12 @@ public class Simulator {
                     catch(NumberFormatException e)
                     {
                         System.out.println("The coordinates should only be numbers, nothing else." + "\n" + "Go back and loo at line " + scene);
+                        System.exit(0);
                     }
                     catch (Exception ex)
                     {
                         System.out.println("Look at line " + scene + ", this is not a valid vehicles, my love.");
+                        System.exit(0);
                     }
 
                 }
