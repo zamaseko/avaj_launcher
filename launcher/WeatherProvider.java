@@ -1,4 +1,5 @@
 package launcher;
+import java.util.Random;
 
 public class WeatherProvider
 {
@@ -18,7 +19,9 @@ public class WeatherProvider
     }
     public String getCurrentWeather(Coordinates coordinates)
     {
-        int wco = coordinates.getLongitude() + coordinates.getLatitude() + coordinates.getHeight(); 
-        return weather[wco % 4];
+        Random rand = new Random();
+        //int wco = coordinates.getLongitude() + coordinates.getLatitude() + coordinates.getHeight(); 
+        // return weather[wco % 4];
+        return weather[rand.nextInt(4)];
     }
 }

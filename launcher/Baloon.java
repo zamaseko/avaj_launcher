@@ -37,9 +37,9 @@ public class Baloon extends Aircraft implements Flyable {
         if(this.coordinates.getHeight() <= 0)
         {
             this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), 0);
-            may.writeRecord("Hello Tower: I'm going down" + this.getClass().getSimpleName() + "#" + this.name + "("+this.id+"): " + "preparing for landing" );
+            may.writeRecord("Hello Tower: I'm going down " + this.getClass().getSimpleName() + "#" + this.name + "("+this.id+") " + "is preparing for landing" );
             this.weatherTower.unregister(this);
-            may.writeRecord("Hello Tower: Clear the runway for landing," + this.getClass().getSimpleName() + "#" + this.name + "("+this.id+"): " + "is about to land" );
+            may.writeRecord("Hello Tower: Clear the runway for landing, " + this.getClass().getSimpleName() + "#" + this.name + "("+this.id+") " + "is about to land" );
         }
         else if(this.coordinates.getHeight() >= 100)
         {

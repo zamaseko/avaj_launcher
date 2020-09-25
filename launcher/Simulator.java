@@ -9,7 +9,7 @@ public class Simulator {
         BufferedReader bf = null;
         WeatherTower wtow = new WeatherTower();
 
-        if (args.length < 1) {
+        if (args.length != 1) {
             System.out.println("Ey my man, where is the scenario.txt file");
             return;
         }
@@ -58,7 +58,7 @@ public class Simulator {
                     }
                     catch (Exception ex)
                     {
-                        System.out.println("Look at line" + scene + "This is not a valid vehicles, my love.");
+                        System.out.println("Look at line " + scene + ", this is not a valid vehicles, my love.");
                     }
 
                 }
